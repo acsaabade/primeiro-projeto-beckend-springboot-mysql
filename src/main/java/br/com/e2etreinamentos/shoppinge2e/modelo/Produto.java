@@ -1,7 +1,9 @@
 package br.com.e2etreinamentos.shoppinge2e.modelo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
@@ -10,8 +12,9 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 public class Produto {
 
+	@Schema(hidden = true)
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@NotBlank(message = "Nome é obrigatório.")
